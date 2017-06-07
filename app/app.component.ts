@@ -17,7 +17,7 @@ import { Keg } from './keg.model';
 export class AppComponent {
   selectedKeg = null;
   masterKegList: Keg[] = [
-    new Keg('Keg1', 'Brand1', 5, 6, 'Yummy', 'IPA'),
+    new Keg('Ninkasi', 'Total Domination', 5, 6, 'Yummy', 'IPA'),
     new Keg('Keg2', 'Brand2', 6, 7, 'Good', 'Sour'),
   ];
 
