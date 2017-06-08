@@ -2,6 +2,10 @@
 
 This is a brewpub web app built in Angular2 which allows users to see what beers are on tap, edit the kegs on tap, add new kegs, and track how many pints are left on tap for each.
 
+## Screenshot
+
+![Image of Homepage Screenshot](resources/img/homepage.png)
+
 
 ## Prerequisites
 
