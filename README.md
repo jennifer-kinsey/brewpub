@@ -18,6 +18,7 @@ You will need the following things properly installed on your computer.
 * `cd message-board`
 * `npm install`
 * `bower install`
+* `apm install atom-typescript`
 * `gulp build`
 
 
@@ -30,6 +31,7 @@ You will need the following things properly installed on your computer.
 ## Technologies Used
 
 * Angular2
+* Typescript
 * HTML/CSS/Bootstrap
 * npm
 * bower

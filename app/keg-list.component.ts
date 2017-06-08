@@ -29,14 +29,18 @@ import { Keg } from './keg.model';
       </div>
     </div>
     <div class="row"  *ngFor="let currentKeg of childKegList">
-      <div class="col-sm-3" [class]="colorizeBeer(currentKeg)">
-        {{currentKeg.brand}} {{currentKeg.name}}
+      <div class="col-sm-3">
+        <div [class]="addBeerIcon(currentKeg)">
+          {{currentKeg.brand}} {{currentKeg.name}}
+        </div>
       </div>
       <div class="col-sm-1">
         {{currentKeg.type}}
       </div>
       <div class="col-sm-1">
-        &#36;{{currentKeg.price}}
+        <div [class]="colorizeBeer(currentKeg)">
+          &#36;{{currentKeg.price}}
+        </div>
       </div>
       <div class="col-sm-1">
         {{currentKeg.abv}}%
@@ -48,8 +52,8 @@ import { Keg } from './keg.model';
         {{currentKeg.pintsRemaining}}
       </div>
       <div class="col-sm-2">
-        <button class="btn btn-success spacer">Take a Drink</button>
-        <button class="btn btn-warning spacer">Growler Time</button>
+        <button class="btn btn-success spacer" (click)="takeADrink(currentKeg)" >Take a Drink</button>
+        <button class="btn btn-warning spacer" (click)="growlerTime(currentKeg)">Growler Time</button>
         <button class="btn btn-danger spacer" (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button>
       </div>
     </div>
@@ -73,5 +77,23 @@ export class KegListComponent {
     } else {
       return "bg-info";
     }
+  }
+
+  addBeerIcon(currentKeg){
+    if (currentKeg.abv <= 5){
+      console.log(currentKeg.name + " less than 5 abv");
+    } else if (currentKeg.abv < 7.5) {
+      console.log(currentKeg.name +  "less than 7.5");
+    } else {
+      console.log(currentKeg.name + "more than 7.5");
+    }
+  }
+
+  takeADrink(clickedKeg: Keg){
+    clickedKeg.pintsRemaining --;
+  }
+
+  growlerTime(clickedKeg: Keg){
+    clickedKeg.pintsRemaining -=  2;
   }
 }
