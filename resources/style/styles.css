@@ -6,6 +6,6 @@
   margin: 3px;
 }
 
-.low-on-beer{
+.low-on-beer, #type-beer{
   display: none;
 }

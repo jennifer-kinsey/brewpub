@@ -1,11 +1,12 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }   from './app.component';
-import { FormsModule }  from '@angular/forms';
-import { KegListComponent }  from './keg-list.component';
-import { EditKegComponent }  from './edit-keg.component';
-import { NewKegComponent }  from './new-keg.component';
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { KegListComponent } from './keg-list.component';
+import { EditKegComponent } from './edit-keg.component';
+import { NewKegComponent } from './new-keg.component';
 import { PintnessPipe } from './pintness.pipe';
+import { TypePipe } from './type.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PintnessPipe } from './pintness.pipe';
                 KegListComponent,
                 EditKegComponent,
                 NewKegComponent,
-                PintnessPipe],
+                PintnessPipe,
+                TypePipe],
   bootstrap:    [ AppComponent ]
 })
 

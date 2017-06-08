@@ -11,6 +11,34 @@ import { Keg } from './keg.model';
         {{currentKeg.name}} - {{currentKeg.pintsRemaining}} pints left!
       </li>
     </ul>
+    <label>What kind of beer do you want? See what we have...</label>
+    <select (change)="onChange($event.target.value)">
+      <option value="Ale">Ale</option>
+      <option value="IPA">IPA</option>
+      <option value="Stout">Stout</option>
+      <option value="Lager">Lager</option>
+      <option value="Porter">Porter</option>
+      <option value="Pilsner">Pilsner</option>
+      <option value="Saison">Saison</option>
+      <option value="Bock">Bock</option>
+      <option value="Other">Other</option>
+    </select>
+    <div id="type-beer">No Beers Match!</div>
+    <ul>
+      <li *ngFor="let currentKeg of childKegList | type:filterByType"> {{currentKeg.name}}
+        <input *ngIf="currentKeg.type === IPA" selected="selected" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Ale" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Stout" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Lager" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Porter" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Pilsner" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Saison" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Bock" type="checkbox"/>
+        <input *ngIf="currentKeg.type === Other" type="checkbox"/>
+      </li>
+    </ul>
+
+
     <div class="row">
       <div class="col-xs-3 bold">
         Beer
@@ -70,7 +98,8 @@ import { Keg } from './keg.model';
 export class KegListComponent {
   @Input() childKegList: Keg[];
   @Output() clickSender = new EventEmitter;
-  filterByPintness: string = "lowKegs"
+  filterByType: string = "allBeer";
+
 
   editButtonHasBeenClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
@@ -87,14 +116,19 @@ export class KegListComponent {
   }
 
   addBeerIcon(currentKeg){
-    if (currentKeg.abv <= 5){
-      console.log(currentKeg.name + " less than 5 abv");
-    } else if (currentKeg.abv < 7.5) {
-      console.log(currentKeg.name +  "less than 7.5");
-    } else {
-      console.log(currentKeg.name + "more than 7.5");
+    if(1===2){
+      console.log('test');
     }
   }
+  // addBeerIcon(currentKeg){
+  //   if (currentKeg.abv <= 5){
+  //     console.log(currentKeg.name + " less than 5 abv");
+  //   } else if (currentKeg.abv < 7.5) {
+  //     console.log(currentKeg.name +  "less than 7.5");
+  //   } else {
+  //     console.log(currentKeg.name + "more than 7.5");
+  //   }
+  // }
 
   takeADrink(clickedKeg: Keg){
     clickedKeg.pintsRemaining --;
@@ -102,5 +136,9 @@ export class KegListComponent {
 
   growlerTime(clickedKeg: Keg){
     clickedKeg.pintsRemaining -=  2;
+  }
+
+  onChange(optionFromMenu) {
+    this.filterByType = optionFromMenu
   }
 }

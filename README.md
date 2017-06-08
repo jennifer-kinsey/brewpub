@@ -32,6 +32,7 @@ You will need the following things properly installed on your computer.
 
 * Angular2
 * Typescript
+* jQuery
 * HTML/CSS/Bootstrap
 * npm
 * bower

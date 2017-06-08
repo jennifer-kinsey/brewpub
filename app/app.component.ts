@@ -19,6 +19,7 @@ export class AppComponent {
   masterKegList: Keg[] = [
     new Keg('Ninkasi', 'Total Domination', 5, 6, 'Yummy', 'IPA'),
     new Keg('Keg2', 'Brand2', 6, 7, 'Good', 'Sour'),
+    new Keg('Pumpking', 'brand3', 6, 7, 'Great! Taste the cloves.', 'Ale')
   ];
 
   editKeg(clickedKeg) {
