@@ -64,17 +64,13 @@ import { Keg } from './keg.model';
     </div>
     <div class="row"  *ngFor="let currentKeg of childKegList">
       <div class="col-xs-3">
-        <div [class]="addBeerIcon(currentKeg)">
-          {{currentKeg.brand}} {{currentKeg.name}}
-        </div>
+        {{currentKeg.brand}} {{currentKeg.name}}
       </div>
       <div class="col-xs-1">
         {{currentKeg.type}}
       </div>
-      <div class="col-xs-1">
-        <div [style.background-color]="colorizeBeer(currentKeg)">
+      <div class="col-xs-1" [style.background-color]="colorizeBeer(currentKeg)">
           &#36;{{currentKeg.price}}
-        </div>
       </div>
       <div class="col-xs-1">
         {{currentKeg.abv}}%
@@ -114,21 +110,6 @@ export class KegListComponent {
       return "black";
     }
   }
-
-  addBeerIcon(currentKeg){
-    if(1===2){
-      console.log('test');
-    }
-  }
-  // addBeerIcon(currentKeg){
-  //   if (currentKeg.abv <= 5){
-  //     console.log(currentKeg.name + " less than 5 abv");
-  //   } else if (currentKeg.abv < 7.5) {
-  //     console.log(currentKeg.name +  "less than 7.5");
-  //   } else {
-  //     console.log(currentKeg.name + "more than 7.5");
-  //   }
-  // }
 
   takeADrink(clickedKeg: Keg){
     clickedKeg.pintsRemaining --;

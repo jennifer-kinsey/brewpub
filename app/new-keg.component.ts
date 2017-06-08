@@ -4,8 +4,9 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'new-keg',
   template: `
-
-    <h1>New Keg</h1>
+  <h3>Add
+    <input type="image" src="/resources/style/keg.png"  *ngIf="!formDisplay" (click)='toggleEditForm()' /></h3>
+        <div *ngIf="formDisplay" id="edit-form">
     <div>
       <label>Enter New Name:</label><br>
       <input #newName><br>
@@ -19,7 +20,8 @@ import { Keg } from './keg.model';
       <input #newDescription><br>
       <label>Enter New Type:</label><br>
       <input #newType><br>
-      <button class="btn btn-info" (click)="
+
+      <input type="image" src="/resources/style/keg.png"  (click)='toggleEditForm()' (click)="
             submitForm(newName.value, newBrand.value, newPrice.value, newAbv.value, newDescription.value, newType.value);
             newName.value = '';
             newBrand.value ='';
@@ -27,16 +29,25 @@ import { Keg } from './keg.model';
             newAbv.value = '';
             newDescription.value = '';
             newType.value = '';
-      ">Add</button>
+      "/>
     </div>
   `
 })
 
 export class NewKegComponent {
   @Output() newKegSender = new EventEmitter();
+   formDisplay: boolean = false;
 
   submitForm(name: string, brand: string, price: number, abv: number, description: string, type: string) {
     var newKegToAdd: Keg = new Keg(name, brand, price, abv, description, type);
     this.newKegSender.emit(newKegToAdd);
+  }
+
+  toggleEditForm() {
+    if(this.formDisplay === true) {
+      this.formDisplay = false;
+    } else {
+      this.formDisplay = true;
+    }
   }
 }
