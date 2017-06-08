@@ -37,7 +37,7 @@ import { Keg } from './keg.model';
         <input *ngIf="currentKeg.type === Other" type="checkbox"/>
       </li>
     </ul>
-
+    <br><hr><br>
 
     <div class="row">
       <div class="col-xs-3 bold">
@@ -47,7 +47,7 @@ import { Keg } from './keg.model';
         Variety
       </div>
       <div class="col-xs-1 bold">
-        Price/Pint
+        Price
       </div>
       <div class="col-xs-1 bold">
         ABV
@@ -72,7 +72,7 @@ import { Keg } from './keg.model';
         {{currentKeg.type}}
       </div>
       <div class="col-xs-1">
-        <div [class]="colorizeBeer(currentKeg)">
+        <div [style.background-color]="colorizeBeer(currentKeg)">
           &#36;{{currentKeg.price}}
         </div>
       </div>
@@ -85,10 +85,10 @@ import { Keg } from './keg.model';
       <div class="col-xs-2">
         {{currentKeg.pintsRemaining}}
       </div>
-      <div class="col-xs-2">
-        <button class="btn btn-success spacer" (click)="takeADrink(currentKeg)" >Take a Drink</button>
-        <button class="btn btn-warning spacer" (click)="growlerTime(currentKeg)">Growler Time</button>
-        <button class="btn btn-danger spacer" (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button>
+      <div class="col-xs-2 manage-buttons">
+        <input type="image" src="/resources/style/beer.png" (click)="takeADrink(currentKeg)" />
+        <input type="image" src="/resources/style/growler.png" (click)="growlerTime(currentKeg)" />
+        <input type="image" src="/resources/style/pencil.png" (click)="editButtonHasBeenClicked(currentKeg)" />
       </div>
     </div>
   </div>
@@ -107,11 +107,11 @@ export class KegListComponent {
 
   colorizeBeer(currentKeg){
     if (currentKeg.price <= 4){
-      return "bg-danger";
+      return "red";
     } else if (currentKeg.price < 7) {
-      return  "bg-warning";
+      return  "goldenrod";
     } else {
-      return "bg-info";
+      return "black";
     }
   }
 

@@ -4,8 +4,49 @@
 
 .spacer{
   margin: 3px;
+  background-color: black;
 }
 
 .low-on-beer, #type-beer{
   display: none;
+}
+
+body{
+  /*background-image: url('background.jpg');*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  background-color: #3c485b;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 2.5em;
+}
+
+.jumbotron{
+  background-image: url('header.jpg');
+  text-align: center;
+}
+
+.jumbotron h1 {
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.jumbotron img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+select, input {
+  color: black;
+}
+
+h1, h2, h3, .bold{
+  font-family: 'Mogra', cursive;
+}
+
+select, input {
+  height: 30px;
 }

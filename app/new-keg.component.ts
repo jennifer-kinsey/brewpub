@@ -4,19 +4,20 @@ import { Keg } from './keg.model';
 @Component({
   selector: 'new-keg',
   template: `
+
     <h1>New Keg</h1>
     <div>
-      <label>Enter New Name:</label>
+      <label>Enter New Name:</label><br>
       <input #newName><br>
-      <label>Enter New Brand:</label>
+      <label>Enter New Brand:</label><br>
       <input #newBrand><br>
-      <label>Enter New Price:</label>
+      <label>Enter New Price:</label><br>
       <input type="number" #newPrice><br>
-      <label>Enter New ABV:</label>
+      <label>Enter New ABV:</label><br>
       <input type="number" #newAbv><br>
-      <label>Enter New Description:</label>
+      <label>Enter New Description:</label><br>
       <input #newDescription><br>
-      <label>Enter New Type:</label>
+      <label>Enter New Type:</label><br>
       <input #newType><br>
       <button class="btn btn-info" (click)="
             submitForm(newName.value, newBrand.value, newPrice.value, newAbv.value, newDescription.value, newType.value);
